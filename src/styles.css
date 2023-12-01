@@ -1,0 +1,50 @@
+body {
+    font-family: sans-serif;
+    background-color: #E8F0FE;
+  }
+.container {
+    margin-top: 100px;
+    max-width: 600px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
+.search {
+    display: flex;
+    width: 800px;
+    padding: 10px 0;
+}
+.title h6 {
+    line-height: 8px;
+    margin: 10px 0;
+}
+h1 {
+    margin: 2px 0;
+    font-size: 50px;
+}
+h2 {
+    font-size: 50px;
+}
+.temp {
+    padding: 10px;
+}
+.col-2 {
+    padding: 0px 5px;
+    border: 0;
+    width: auto;
+}
+.col-6 {
+    display: flex;
+}
+.col-6 button {
+    border: 0;
+    padding: 0px 6px;
+    background-color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+#celsius {
+    border-right: 2px solid black;
+    
+    height: 20px;
+}
