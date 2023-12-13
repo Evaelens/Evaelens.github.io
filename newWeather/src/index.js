@@ -55,8 +55,35 @@ function form(event) {
     apiSearch(search.value)
 }
 
+function displayForecast() {
+    let weatherForecast = document.querySelector("#weather-forecast")
+
+    let days = ["Tue", "Wed", "Thu", "Fri", "Sat"]
+    let forecastHtml = "";
+    days.forEach(function(day) {
+        forecastHtml += `<div class="forecast-1">
+    <ul>
+        <li>
+            ${day}
+        </li>
+        <li>
+            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="">
+        </li>
+        <li>
+            18° <span class="temp-min">13°</span>
+        </li>
+    </ul>
+    </div>
+    `;
+    })
+
+    weatherForecast.innerHTML = forecastHtml
+}
+
 let searchInput = document.querySelector("#search-input")
 searchInput.addEventListener("submit", form)
 
 apiSearch("Nigeria")
+
+displayForecast()
 

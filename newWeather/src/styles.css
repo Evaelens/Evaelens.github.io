@@ -85,7 +85,15 @@ main {
 
 .weather-forecast {
     display: flex;
+    justify-content: space-between;
+}
+
+.forecast-1 {
     text-align: center;
+}
+
+ul {
+    padding: 0;
 }
 
 li {
@@ -103,6 +111,7 @@ li:last-child {
 
 .temp-min {
     color: rgba(39, 33, 66, 0.5);
+    padding-left: 10px;
 }
 
 footer {
