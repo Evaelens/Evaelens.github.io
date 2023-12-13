@@ -69,17 +69,18 @@ main {
 }
 
 .icon {
-    font-size: 50px;
-    margin-top: 22px;
+    width: 80px;
+    margin-top: 28px;
 }
 
 .celsius {
-    margin-top: 16px;
+    margin-top: 26px;
     font-size: 28px;
 }
 
 .temperature{
     font-size: 88px;
+    line-height: 129px;
 }
 
 footer {
