@@ -83,6 +83,28 @@ main {
     line-height: 129px;
 }
 
+.weather-forecast {
+    display: flex;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+li:first-child {
+    font-size: 16px;
+    color: rgba(39, 33, 66, 0.5);
+}
+
+li:last-child {
+    font-size: 13px;
+}
+
+.temp-min {
+    color: rgba(39, 33, 66, 0.5);
+}
+
 footer {
     border-top: 1px solid transparent;
     padding: 30px 0 0 0;
