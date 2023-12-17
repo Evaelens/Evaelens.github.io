@@ -1,5 +1,4 @@
 function searchCity(response) {
-    console.log(response)
     let city = document.querySelector("#city")
     city.innerHTML = response.data.city
 
@@ -25,6 +24,8 @@ function searchCity(response) {
     let icon = `<img class="icon" src="${response.data.condition.icon_url}" alt="">`
     let weatherIcon = document.querySelector("#weather-icon")
     weatherIcon.innerHTML = icon
+    
+    getForecast(response.data.city)
 }
 
 function apiDate(time) {
@@ -55,35 +56,49 @@ function form(event) {
     apiSearch(search.value)
 }
 
-function displayForecast() {
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    return days[date.getDay()]
+}
+
+function displayForecast(response) {
+    console.log(response.data)
     let weatherForecast = document.querySelector("#weather-forecast")
 
     let days = ["Tue", "Wed", "Thu", "Fri", "Sat"]
     let forecastHtml = "";
-    days.forEach(function(day) {
+    response.data.daily.forEach(function(day, index) {
+        if (index < 5) {
         forecastHtml += `<div class="forecast-1">
     <ul>
         <li>
-            ${day}
+            ${formatDay(day.time)}
         </li>
         <li>
-            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="">
+            <img src="${day.condition.icon_url}" class="forecast-icon" />
         </li>
         <li>
-            18° <span class="temp-min">13°</span>
+            ${Math.round(day.temperature.maximum)}° <span class="temp-min">${Math.round(day.temperature.minimum)}°</span>
         </li>
     </ul>
     </div>
     `;
-    })
+} })
 
     weatherForecast.innerHTML = forecastHtml
+}
+
+function getForecast(city) {
+    let apiKey = "7oc0fb947c5cfcdf44a3340t6bccb6f9"
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`
+    axios.get(apiUrl).then(displayForecast)
+    console.log(apiUrl)
 }
 
 let searchInput = document.querySelector("#search-input")
 searchInput.addEventListener("submit", form)
 
 apiSearch("Nigeria")
-
-displayForecast()
 
